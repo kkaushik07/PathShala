@@ -1,0 +1,105 @@
+<%- include('header.ejs') %>
+
+    <% console.log( 'log from here' ,results.course.points) %>
+
+        <% const course=results.course._id %>
+            <% const Slug=results.course.Slug %>
+                <% const completedLessons=results.completedLessons %>
+
+                    <div class="d-flex flex-row  ">
+                        <div class="sidenav">
+                            <% results.course.lessons.forEach(function(lesson){ %>
+                                <button onclick="myFunction('<%= lesson.title %>')">
+                                    <%= lesson.title %>
+                                </button>
+                                <% }) %>
+                        </div>
+
+                        <div class='container'>
+
+                            <div id='initial' class="description" style='display: block;margin-top: 20px;'>
+                                <h2>
+                                    <%= results.course.title %>
+                                </h2>
+                                <p    style="font-size: 1.13em" >
+                                    <%= results.course.description %>
+                                </p>
+
+                                <ul>
+                                    <% results.course.points.forEach(function(point){ %>
+                                        <li style="padding: 5px;">
+                                            <h4>
+                                                <%= point %>
+                                            </h4>
+                                        </li>
+                                        <% }) %>
+                                </ul>
+                            </div>
+                            <% results.course.lessons.forEach(function(lesson){ %>
+                                <div id="<%= lesson.title %>" name='lesson' style="display: none;margin-top: 20px;">
+                                    <div>
+                                        <h2 style="text-decoration: underline grey;">
+                                            <%= lesson.title %>
+                                        </h2>
+
+                                        <% if(completedLessons.includes(`${lesson.title}`)){ %>
+
+                                            <form action="/Incompleted" style="margin-top: -43px ;" method="POST"
+                                                class='right'>
+                                                <input type='hidden' name="course" value="<%= course %>">
+                                                <input type='hidden' name="Slug" value="<%= Slug %>">
+                                                <input type='hidden' name="title" value="<%= lesson.title %>">
+                                                <button class="btn btn-primary" type="submit"> UnMark as
+                                                    complete</button href="">
+                                            </form>
+                                            <% } else { %>
+                                                <% //console.log({"title":"first one","completed":true}) %>
+                                                    <% //console.log(completedLessons) %>
+
+                                                        <form action="/completed" style="margin-top: -43px ;"
+                                                            method="POST" class='right'>
+                                                            <input type='hidden' name="course" value="<%= course %>">
+                                                            <input type='hidden' name="Slug" value="<%= Slug %>">
+                                                            <input type='hidden' name="title"
+                                                                value="<%= lesson.title %>">
+                                                            <button class="btn btn-primary" type="submit"> Mark as
+                                                                complete</button href="">
+                                                        </form>
+                                                        <% } %>
+                                    </div>
+
+                                    <div class=" d-flex justify-content-center" style="margin-bottom: 10px;">
+                                        <video controls src="/Videos/<%= lesson.lessonVideo[0] %>" type='video/mp4'
+                                            width="720px" style="border-radius: 20px;">
+                                            Sorry, unable to render video
+                                        </video>
+                                        <div class="description">
+                                            <h3>Description</h3>
+                                            <p>
+                                                <%= lesson.description %>
+                                            </p>
+                                        </div>
+
+                                    </div>
+                                </div>
+                                <% }) %>
+                        </div>
+
+                        <script>function myFunction(id) {
+                                console.log(id)
+                                var x = document.getElementById(id);
+                                var y = document.getElementById('initial')
+                                var z = document.getElementsByName('lesson')
+
+
+                                y.style.display = 'none'
+                                z.forEach(element => {
+                                    element.style.display = 'none'
+                                });
+                                x.style.display = "block";
+
+
+                            }</script>
+
+                    </div>
+                    <%- include('footer.ejs') %>

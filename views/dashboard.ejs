@@ -1,0 +1,48 @@
+<%- include('header.ejs') %>
+
+
+
+
+    <% if(results.length===0) { %>
+        <%- include('_category.ejs') %>
+        <% } else { %>
+            <div class="ui cards" style="margin: -2px 0px 0px 5px;">
+                <% results.forEach(function(result){ %>
+                    <div class="ui card cardSize">
+                        <div class="image ">
+                            <img src="/images/<%= (result.course.image) %> " alt="">
+                        </div>
+                        <div class="content">
+                            <div class='header'>
+                                <% if((result.course.title).length>35){%>
+                                    <%= (result.course.title).substring(0,35)+'...' %>
+                                        <%}else{ %>
+                                            <%= (result.course.title) %>
+                                                <% }%>
+                            </div>
+                            
+                            <div class="meta" style="margin-top: 5px;">
+                                <%= result.course.Author.name %>
+                            </div>
+                            <% const
+                                progress=Math.floor((result.completedLessons.length/result.course.lessons.length)*100)
+                                %>
+                                <div class="progress" style="margin-top: 10px">
+                                    <div class="progress-bar bg-success" role="progressbar"
+                                        style="width:<%= progress %>%">
+                                        <%= progress %>%
+                                    </div>
+                                </div>
+                                <a class="btn btn-secondary" style="margin-top: 10px;"
+                                    href="/lesson/<%= result.course._id %>/<%= result.course.Slug %>">
+                                    Continue learning
+                                </a>
+                        </div>
+                    </div>
+                    <% }) %>
+            </div>
+            <% } %>
+
+
+
+                <%- include('footer.ejs') %>

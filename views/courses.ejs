@@ -1,0 +1,55 @@
+<%- include('header.ejs') %>
+    <div class='ui cards' style="margin: -10px 0px 0px 5px;">
+
+    <% let enrolled = null %>
+    
+    <% if (alreadyEnrolled) { %>
+    <%  enrolled =  alreadyEnrolled.map( doc =>  (doc.course).toString())  %>
+     <% } %>
+     
+ 
+        <% result.forEach(function(result){ %>
+         
+            <div class="ui card cardSize">
+                <div class="image">
+                    <img src="/images/<%= result.image %>" alt="">
+                </div>
+                <div class="content ">
+                    <div class="header">
+                        <% if((result.title).length>35){%>
+                            <%= (result.title).substring(0,35)+'...' %>
+                            <%}else{ %>
+                                <%= result.title %> 
+                                <% }%>
+                       
+                    </div>
+                    <div class="meta" style="margin-top: -2px;">
+                        <span>
+                            <%= result.Author.name %>
+                        </span>
+                    </div>
+                    
+                    
+                
+                   <% if(enrolled && enrolled.includes((result._id).toString())){  %>
+                    <a class="btn btn-primary" href="/dashboard" style="margin-top: 10px;"> Continue </a>
+                    <% } else{%>
+                
+                        <div class="header" style="margin-top: 5px;">
+                            <i class="rupee sign icon" style="margin-right:0px ;"></i>
+                            <%= result.price %>
+                        </div>
+                        
+                    <form  action="/courses/<%=result._id%>/enroll" style="margin-top: 10px"
+                        method="POST">
+                        <input type='hidden' name="Slug" value="<%= result.Slug %>" >
+                        <input type='hidden' name="lessons" value="<%= result.lessons %>" >
+                        <button class="ui violet button" type="submit" id=<%=result._id %> >Enroll</button>
+                    </form>
+                   <% } %>
+                
+                </div>
+            </div>
+            <% }) %>
+    </div>
+    <%- include('footer.ejs') %>

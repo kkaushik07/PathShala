@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+
+<head>
+  <meta charset="utf-8">
+  <title>Daily Journal</title>
+  <meta charset="utf-8">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-+0n0xVW2eSR5OomGNYDnhzAbDsOXxcvSN1TPprVMTNDbiYZCxYbOOl7+AMvyTG2x" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.4.1/semantic.min.css"
+    integrity="sha512-8bHTC73gkZ7rZ7vpqUQThUDhqcNFyYi2xgDgPDHc+GXVGHXq+xPjynxIopALmOPqzo9JZj0k6OqqewdGO3EsrQ=="
+    crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <link rel="stylesheet" href="/app.css" />
+</head>
+
+<body>
+  <div class=" ui massive violet inverted secondary stackable menu">
+
+    <div class="item link">
+      <a href="/">
+        <h2>PathShala</h2>
+      </a>
+    </div>
+
+    <a class='item link' href="/">Home</a>
+    <a class="item link" href="/categories">Category </a>
+   
+
+
+
+    <% if(user){ %>
+      <a class='item link' href="/dashboard">DashBoard</a>
+      <div class="right menu">
+        <a class="ui  item link" href="/logout">Log Out</a>
+      </div>
+      <% } %>
+
+
+  </div>
+
+
+  <div>

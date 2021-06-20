@@ -1,0 +1,114 @@
+body{
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+footer{
+    margin-top: auto;
+}
+
+
+.link{
+    font-size: 1.2rem;
+}
+
+.right{
+    float: right;
+}
+
+/* .footer-padding {
+	padding-bottom: 40px;
+} */
+
+.footer {
+	margin-top: auto;
+	text-align: center;
+	width: 100%;
+  border-top: 1px solid rgb(187, 187, 187);
+  padding: 10px 40px 0px 10px;
+  margin: 0px 10px
+}
+.footer ul{
+  list-style: none;
+  padding-left: 0px;
+}
+.footer li{
+  padding: 2px;
+  text-align: left;
+  
+}
+
+.padding{
+  padding: 3px;
+}
+
+.bg{
+    background-color: #c30a0a;
+}
+
+
+
+.sidenav {
+    width: 160px;
+    
+    padding-top: 20px;
+  }
+
+  .sidenav button {
+    padding: 6px 8px 6px 16px;
+    text-decoration: none;
+    border:none;
+    background: none;
+    font-size: 25px;
+    color: #6435c9;
+    display: block;
+  }
+
+  .sidenav button:hover {
+    color: #381f92;
+    border: 2px solid black;
+    border-radius: 15px;
+    margin-left: 3px;
+  }
+
+  .description{
+    margin-left: 20px;
+    background-color: #fbfbf8;
+    border: 1px solid rgb(182, 182, 182);
+    border-radius: 20px;
+    padding: 18px;
+  }
+
+  .description p {
+      font-size: 1.2em
+
+  }
+
+  .cardSize {
+     max-width:220px !important;
+     max-height:280px !important;
+  }
+  .cardContainer{
+    margin-left: 20px;
+    margin-bottom: 20px;
+  }
+
+  .catCard{
+    min-width:320px !important;
+    min-height:350px !important;
+  }
+
+  .catCard img{
+    min-height: 320px !important;
+    min-width: 320px;
+  }
+  .cardSize img{
+    max-height: 110px !important;
+  }
+
+  @media screen and (max-height: 450px) {
+    .sidenav {padding-top: 15px;}
+    .sidenav button {font-size: 18px;}
+  }
+

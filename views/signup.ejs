@@ -1,0 +1,49 @@
+ <div  style='height: 91.6vh; margin-top: -14px; width:100vw ; 
+background-image: url(https://t3.ftcdn.net/jpg/04/12/12/98/360_F_412129819_HaLS1MLvkJBPaBPMagPUOYm1SfAcaT7h.jpg)
+;background-repeat: no-repeat; background-size:cover ;'>
+    <h1  style="color: white ; font-size:5rem; text-align: center ;text-shadow: 3px 3px black">Start Learning Today </h1>
+    <div class='d-flex flex-column justify-content-center ui center aligned container  ' style="margin-top: 65px;">
+
+        <div class="ui two column very relaxed stackable grid">
+            <div class='column'>
+                <form action="/register" method="POST" class='ui form'>
+                    <h2 style='text-align:center'>SignUp</h2>
+                    <div class='field'>
+                        <input name='name' label="Name:" placeholder='Name' id="Name" onChange={handleinputChange} />
+                    </div>
+                    <div class=' field'>
+                        <input name="username" label="Email-Id:" type='email' placeholder='Email-Id' id="Email-Id"
+                            onChange={handleinputChange} />
+                    </div>
+                    <div class='field'>
+                        <input name='mobileNumber' label="Mobile Number:" placeholder='Mobile Number' id="Mobile Number"
+                            onChange={handleinputChange} />
+                    </div>
+                    <div class=' field'>
+                        <input name='password' label="Password:" placeholder='Password' id="Password" type="password"
+                            onChange={handleinputChange} />
+                    </div>
+                    <button type='submit' class='ui blue submit button '> SignUp </button>
+                </form>
+            </div>
+
+
+
+            <div class='ui form column '>
+                <form class='ui form' action="/login" method="POST">
+                    <h2 style='text-align: center'>Sign In</h2>
+                    <div class=' field'>
+                        <input name="username" label="Email-Id:" type='email' placeholder='Email-Id'
+                            onChange={handleinputChange} />
+                    </div>
+                    <div class='field'>
+                        <input name='password' label="Password:" type='password' placeholder='Password'
+                            onChange={handleinputChange} />
+                    </div>
+                    <button class='ui blue submit button' type="submit">SignIn</button>
+
+                </form>
+            </div>
+        </div>
+    </div>
+</div> 

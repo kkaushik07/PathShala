@@ -154,7 +154,7 @@ exports.incomplete = (req,res) => {
 
                 if (err) res.status(400).json({ message: 'lesson could not be unmarked as done', err: err })
                 
-                return res.redirect(`/${course}/${Slug}`)
+                return res.redirect(`/lesson/${course}/${Slug}`)
             })
 
     } else{

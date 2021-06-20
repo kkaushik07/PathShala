@@ -26,7 +26,7 @@ const imageStorage = multer.diskStorage({
 })
 
 
-console.log(path.join(path.dirname(__dirname), 'statics/images'))
+
 
 
 

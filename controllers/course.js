@@ -116,7 +116,7 @@ exports.myCourse = async (req, res) => {
         //console.log(course,Slug)
         const enrolledCourse = await Enrolled.findOne({ user: req.user._id,course , Slug}).populate('course').exec((err, results) => {
             if (err) console.log(err)
-            if (results) { console.log(results , "controller")
+            if (results) { console.log( "myCourse controller")
                 res.render('myCourse', { results , user: req.user._id })}
         })
     } else {
@@ -135,7 +135,7 @@ exports.completed = (req, res) => {
 
                 if (err) res.status(400).json({ message: 'lesson could not be marked as done', err: err })
                 
-                return res.redirect(`/${course}/${Slug}`)
+                return res.redirect(`/lesson/${course}/${Slug}`)
             })
 
     } else{

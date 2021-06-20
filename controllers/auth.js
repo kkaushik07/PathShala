@@ -1,6 +1,5 @@
 const User = require('../models/user')
 const jwt = require('jsonwebtoken')
-const { hashPassword, comparePassword } = require('../utils/auth')
 const passportLocalMongoose = require('passport-local-mongoose')
 const passport = require('passport')
 
@@ -38,9 +37,9 @@ exports.register = async (req, res) => {
         let userExist = await User.findOne({ username }).exec();
         if (userExist) return res.status(400).send('Email is already taken')
 
-        //hashing password
+     
 
-        const hashedPassword = hashPassword(password)
+        
 
         User.register(new User({ username, name, email: username }), password, (err, user) => {
             if (err)  console.log('error', err)

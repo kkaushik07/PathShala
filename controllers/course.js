@@ -39,7 +39,7 @@ exports.addCourse = (req, res) => {
     const image = req.file.filename
     console.log(image)
     const course = new Course({
-        title, description, price, catagory, Slug: slugify(title), Author, image
+        title, description, price, category, Slug: slugify(title), Author, image
     })
     course.save((err, course) => {
         if (err) return res.status(400).json({ message: err })
